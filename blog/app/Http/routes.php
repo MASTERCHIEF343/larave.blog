@@ -44,4 +44,11 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('sinup','BlogController@sinup');
 	//send mail
 	Route::post('/sendmail','BlogController@sendmail');
+
+	//Socialites
+	Route::get('auth/github', 'SocialiteController@redirectToProvider');
+	Route::get('auth/github/callback', 'SocialiteController@handleProviderCallback');
+
+	//markdown
+	Route::get('/markdown','EditorController@editor');
 });

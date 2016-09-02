@@ -17,6 +17,12 @@ use App\User;
 use Crypt;
 //mail
 use Mail;
+//socialite
+use Socialite;
+//BroadCast
+use Event;
+use App\Events\PusherEvent;
+
 
 class BlogController extends Controller
 {	
@@ -25,10 +31,10 @@ class BlogController extends Controller
 	*middleware
 	*@ return void
 	*/
-	public function __construct(){
-		//strict  times
-		$this->middleware('throttle:30 ,1');
-	}
+	// public function __construct(){
+	// 	//strict  times
+	// 	$this->middleware('throttle:30 ,1');
+	// }
 	//显示登录界面
 	public function index(){
 		return view();

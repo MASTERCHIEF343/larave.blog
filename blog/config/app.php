@@ -148,6 +148,14 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        //Socialites
+        Laravel\Socialite\SocialiteServiceProvider::class,
+        //Pusher
+        Vinkla\Pusher\PusherServiceProvider::class,
+        //markdown
+        YuanChao\Editor\EndaEditorServiceProvider::class,
+
+
         /*
          * Application Service Providers...
          */
@@ -201,6 +209,11 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        
+        //Socialites
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        //markdown
+        'EndaEditor' => YuanChao\Editor\Facade\EndaEditorFacade::class,
 
     ],
 
