@@ -35,7 +35,13 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="javascript:void(0);">Back-end</a>
+					<a class="navbar-brand" href="javascript:void(0);">
+						@if(Session::get('name'))
+							Admin Control
+						@else
+							Back-end
+						@endif
+					</a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				@if(Session::get('name'))
@@ -44,8 +50,8 @@
 				@else
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="login">Login</a></li>
-						<li><a href="register">Register</a></li>
+						<li><a href="admin/login">Login</a></li>
+						<li><a href="admin/register">Register</a></li>
 				</div><!-- /.navbar-collapse -->
 				@endif
 			</div><!-- /.container-fluid -->

@@ -9,7 +9,10 @@
         "laravel/framework": "5.2.*",
         "laravel/socialite": "^2.0",
         "vinkla/pusher": "^2.4",
-        "yuanchao/laravel-5-markdown-editor": "dev-master"
+        "yuanchao/laravel-5-markdown-editor": "dev-master",
+        "michelf/php-markdown": "^1.6",
+        "michelf/php-smartypants": "1.6.0-beta1",
+        "doctrine/dbal": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

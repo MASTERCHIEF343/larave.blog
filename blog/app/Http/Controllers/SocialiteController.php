@@ -44,6 +44,7 @@ class SocialiteController extends Controller
 			$userModel = new User;
 			$userModel->name = $user->getName();
 			$userModel->email = $user->getEmail();
+			$userModel->rank = 'admin';
 			$userModel->save();
 			$name = Crypt::encrypt($user->name);
 			$request->session()->put('name',$name);

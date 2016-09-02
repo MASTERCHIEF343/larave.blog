@@ -10,7 +10,7 @@ class User extends Authenticatable
     *Table
     *
     */
-    protected $table = 'users';
+     protected $table = 'users';
     
     /**
      * The attributes that are mass assignable.
@@ -29,4 +29,5 @@ class User extends Authenticatable
     protected $hidden = [
          'remember_token',
     ];
+    
 }

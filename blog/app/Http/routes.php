@@ -28,27 +28,26 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], function () {
 
 	//get
-	Route::get('register','BlogController@register');
-	Route::get('login','BlogController@login');
+	Route::get('admin/register','Admin\RegisterController@register');
+	Route::get('admin/login','Admin\RegisterController@login');
 	//after register
-	Route::get('user/{name}', 'BlogController@user')->name('author');
+	Route::get('admin/user/{name}', 'Admin\RegisterController@user')->name('author');
 	//logout
-	Route::get('logout','BlogController@logout');
+	Route::get('admin/logout','Admin\RegisterController@logout');
 	//reset password
-	Route::get('password/reset','BlogController@reset');
+	Route::get('admin/password/reset','Admin\RegisterController@reset');
 
 	//post
 	//sin in
-	Route::post('sinin','BlogController@sinin');
+	Route::post('admin/sinin','Admin\RegisterController@sinin');
 	//store new registers
-	Route::post('sinup','BlogController@sinup');
+	Route::post('admin/sinup','Admin\RegisterController@sinup');
 	//send mail
-	Route::post('/sendmail','BlogController@sendmail');
+	Route::post('admin/sendmail','Admin\RegisterController@sendmail');
 
 	//Socialites
 	Route::get('auth/github', 'SocialiteController@redirectToProvider');
 	Route::get('auth/github/callback', 'SocialiteController@handleProviderCallback');
 
 	//markdown
-	Route::get('/markdown','EditorController@editor');
 });
