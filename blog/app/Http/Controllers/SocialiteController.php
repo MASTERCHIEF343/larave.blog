@@ -36,13 +36,10 @@ class SocialiteController extends Controller
 	{
 		$user = Socialite::driver('github')->user();
 		// save and log in
-		if(User::where('name',$user->getName())->get()){
-			$name = Crypt::encrypt($user->getName());
-			$request->session()->put('name',$name);
-			return redirect()->route('author',$name);
-		}else if(!User::where('github_id',$user->getId())->first()){
+		if(!User::where('github_id',$user->getId())->first()){
 			$userModel = new User;
 			$userModel->name = $user->getName();
+			$userModel->github_id = $user->getId();
 			$userModel->email = $user->getEmail();
 			$userModel->rank = 'admin';
 			$userModel->save();
@@ -50,7 +47,9 @@ class SocialiteController extends Controller
 			$request->session()->put('name',$name);
 			return redirect()->route('author',$name);
 		}else{
-			return view('register.login',['err' => 'Your github has been registed.']);
+			$name = Crypt::encrypt($user->getName());
+			$request->session()->put('name',$name);
+			return redirect()->route('author',$name);
 		}
 	}
 }

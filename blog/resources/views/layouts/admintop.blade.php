@@ -44,11 +44,10 @@
 					</a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="admin/login">Login</a></li>
-						<li><a href="admin/register">Register</a></li>
-				</div><!-- /.navbar-collapse -->
+				
+				@section('author-nav')
+				@show
+				
 			</div><!-- /.container-fluid -->
 		</nav>
 
@@ -59,6 +58,12 @@
 		@if(Session::get('name'))
 			@section('author-content')
 			@show
+		@else
+			<div class="alert alert-danger">
+				<strong>Whoops!</strong>
+				There were some problems with your input.<br><br>
+				<p>You're not logged.</p>
+			</div>
 		@endif		
 	</body>
 	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->

@@ -37,6 +37,21 @@ Route::group(['middleware' => ['web']], function () {
 	//reset password
 	Route::get('admin/password/reset','Admin\RegisterController@reset');
 
+
+	//admin-post
+	Route::get('admin/post','Admin\AdminController@post');
+	//admin-tags
+	Route::get('admin/tag','Admin\AdminController@tag');
+	//admin-upload
+	Route::get('admin/upload','Admin\AdminController@upload');
+
+	//create new tag
+	Route::get('admin/tag/create','Admin\TagController@create');
+	//edite tag
+	Route::get('admin/tag/{id}/edit' ,'Admin\TagController@edit');
+
+
+
 	//post
 	//sin in
 	Route::post('admin/sinin','Admin\RegisterController@sinin');
@@ -44,6 +59,13 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('admin/sinup','Admin\RegisterController@sinup');
 	//send mail
 	Route::post('admin/sendmail','Admin\RegisterController@sendmail');
+	//store new tag
+	Route::post('admin/tag/store','Admin\TagController@storetag');
+	//update tag
+	Route::post('admin/tag/update/{id}','Admin\TagController@update');
+	//delete tag
+	Route::post('admin/tag/delete/{id}','Admin\TagController@delete');
+
 
 	//Socialites
 	Route::get('auth/github', 'SocialiteController@redirectToProvider');

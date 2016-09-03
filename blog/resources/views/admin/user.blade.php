@@ -1,10 +1,11 @@
-@extends('layouts.topheader')
+@extends('layouts.admintop')
 	<!--nav-->
 	@section('author-nav')
 	<div  class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li><a href="javascript:void();">文章</a></li>
-			<li><a href="javascript:void();">标签</a></li>
+			<li><a href="admin/post">发布</a></li>
+			<li><a href="admin/tag">标签</a></li>
+			<li><a href="admin/upload">更新</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
