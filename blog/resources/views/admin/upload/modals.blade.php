@@ -152,16 +152,16 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">
-                ×
+                    ×
                 </button>
                 <h4 class="modal-title">Image Preview</h4>
             </div>
             <div class="modal-body">
-                <img id="preview-image" src="x" class="img-responsive">
+                <img id="preview-image" src="" class="img-responsive">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">
-                Cancel
+                    Cancel
                 </button>
             </div>
         </div>

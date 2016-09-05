@@ -179,13 +179,13 @@ class UploadsManager
      */
     public function deleteFile($path)
     {
-        $path = Storage::delete($path);
+        $path = $this->cleanFolder($path);
 
-        if (! Storage::get($path)) {
-            return "File does not exist.";
-        }
+            if (! $this->disk->exists($path)) {
+                return "File does not exist.";
+            }
 
-        return $this->disk->delete($path);
+            return $this->disk->delete($path);
     }
 
     /**

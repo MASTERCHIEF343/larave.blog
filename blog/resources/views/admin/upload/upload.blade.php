@@ -29,7 +29,7 @@
 					<div class="pull-left">
 						<ul class="breadcrumb">
 							@foreach ($breadcrumbs as $path => $disp)
-							<li><a href="/admin/upload?folder={{ $path }}">{{ $disp }}</a></li>
+							<li><a href="admin/upload?folder={{ $path }}">{{ $disp }}</a></li>
 							@endforeach
 							<li class="active">{{ $folderName }}</li>
 						</ul>
@@ -59,63 +59,57 @@
 									<th data-sortable="false">Actions</th>
 								</tr>
 							</thead>
-							<tbody>
-								@if($files)
-									{{-- 子目录 --}}
-									@foreach ($subfolders as $path => $name)
-									<tr>
-										<td>
-											<a href="/admin/upload?folder={{ $path }}">
-												<i class="fa fa-folder fa-lg fa-fw"></i>
-												{{ $name }}
-											</a>
-										</td>
-										<td>Folder</td>
-										<td>-</td>
-										<td>-</td>
-										<td>
-											<button type="button" class="btn btn-xs btn-danger" onclick="delete_folder('{{ $name }}')">
-											<i class="fa fa-times-circle fa-lg"></i>
-											Delete
-											</button>
-										</td>
-									</tr>
-									@endforeach
-									{{-- 所有文件 --}}
-									@foreach ($files as $file)
-									<tr>
-										<td>
-											<a href="{{ $file['webPath'] }}">
-												@if (is_image($file['mimeType']))
-												<i class="fa fa-file-image-o fa-lg fa-fw"></i>
-												@else
-												<i class="fa fa-file-o fa-lg fa-fw"></i>
-												@endif
-												{{ $file['name'] }}
-											</a>
-										</td>
-										<td>{{ $file['mimeType'] or 'Unknown' }}</td>
-										<td>{{ $file['modified']->format('j-M-y g:ia') }}</td>
-										<td>{{ human_filesize($file['size']) }}</td>
-										<td>
-											<button type="button" class="btn btn-xs btn-danger" onclick="delete_file('{{ $file['name'] }}')">
-											<i class="fa fa-times-circle fa-lg"></i>
-											Delete
-											</button>
+						<tbody>
+								{{-- 子目录 --}}
+								@foreach ($subfolders as $path => $name)
+								<tr>
+									<td>
+										<a href="admin/upload?folder={{ $path }}">
+											<i class="fa fa-folder fa-lg fa-fw"></i>
+											{{ $name }}
+										</a>
+									</td>
+									<td>Folder</td>
+									<td>-</td>
+									<td>-</td>
+									<td>
+										<button type="button" class="btn btn-xs btn-danger" onclick="delete_folder('{{ $name }}')">
+										<i class="fa fa-times-circle fa-lg"></i>
+										Delete
+										</button>
+									</td>
+								</tr>
+								@endforeach
+								{{-- 所有文件 --}}
+								@foreach ($files as $file)
+								<tr>
+									<td>
+										<a href="{{ $file['webPath'] }}">
 											@if (is_image($file['mimeType']))
-											<button type="button" class="btn btn-xs btn-success" onclick="preview_image('{{ $file['webPath'] }}')">
-											<i class="fa fa-eye fa-lg"></i>
-											Preview
-											</button>
+											<i class="fa fa-file-image-o fa-lg fa-fw"></i>
+											@else
+											<i class="fa fa-file-o fa-lg fa-fw"></i>
 											@endif
-										</td>
-									</tr>
-									@endforeach
-								@else
-									<tr>
-										<td colspan="5">There is no files.</td>
-									</tr>
-								@endif
+											{{ $file['name'] }}
+										</a>
+									</td>
+									<td>{{ $file['mimeType'] or 'Unknown' }}</td>
+									<td>{{ $file['modified']->format('j-M-y g:ia') }}</td>
+									<td>{{ human_filesize($file['size']) }}</td>
+									<td>
+										<button type="button" class="btn btn-xs btn-danger" onclick="delete_file('{{ $file['name'] }}')">
+										<i class="fa fa-times-circle fa-lg"></i>
+										Delete
+										</button>
+										@if (is_image($file['mimeType']))
+										<button type="button" class="btn btn-xs btn-success" onclick="preview_image('{{ $file['webPath'] }}')">
+										<i class="fa fa-eye fa-lg"></i>
+										Preview
+										</button>
+										@endif
+									</td>
+								</tr>
+								@endforeach
 							</tbody>
 						</table>
 
