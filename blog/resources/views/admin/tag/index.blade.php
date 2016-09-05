@@ -5,7 +5,7 @@
 		<ul class="nav navbar-nav">
 			<li><a href="admin/post">发布</a></li>
 			<li><a href="admin/tag">标签</a></li>
-			<li><a href="admin/upload">更新</a></li>
+			<li><a href="admin/upload">上传</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">

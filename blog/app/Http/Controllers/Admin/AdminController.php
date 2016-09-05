@@ -19,10 +19,6 @@ class AdminController extends Controller
 	public function post(){
 
 	} 
-	//文章更新 
-	public function upload(){
-
-	}
 	//标签
 	public function tag(Request $request){
 		$name = Crypt::decrypt($request->session()->get('name'));
