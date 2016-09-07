@@ -15,8 +15,7 @@ class HomePageController extends Controller
 	//index page
 	public function index(){
 		$tag = New Tag;
-		$content = EndaEditor::MarkDecode("#我是markdown语法");
-		return view('Home.index')->with('content',$content);
+		return view('Home.index');
 	}
 	//msg page
 	public function msg(){

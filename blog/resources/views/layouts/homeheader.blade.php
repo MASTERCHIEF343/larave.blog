@@ -14,6 +14,8 @@
 	<link rel="stylesheet" type="text/css" href="../resources/assets/css/homepage.css">
 	@section('link')
 	@show
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
 	<!--Header-->
@@ -30,7 +32,7 @@
 		</div>
 	</header>
 	<!--nav-->
-	<nav class="main-navigation navbar" role="navigation">
+	<nav class="main-navigation navbar navbar-default" role="navigation">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -52,7 +54,7 @@
 				</ul>
 				<form class="navbar-form navbar-right " role="search">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="想要找些什么呢....">
+						<input type="text" id="form-search" class=" form-control " placeholder="想要找些什么呢....">
 					</div>
 					<a href="javascript:void();">
 						<img class="nav-img" src="img/search.png">
@@ -65,8 +67,6 @@
 	@section('content')
 	@show
 </body>
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </html>

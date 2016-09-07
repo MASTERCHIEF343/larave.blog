@@ -16,7 +16,7 @@
 </div>
 <div class="form-group">
 	<label for="meta_description" class="col-md-4 control-label">
-		标题 Description
+		Description
 	</label>
 	<div class="col-md-7">
 		<input type="text" class="form-control" id="meta_description" name="meta_description" value="{{ $meta_description }}">
