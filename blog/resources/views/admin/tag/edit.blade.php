@@ -3,9 +3,9 @@
 	@section('author-nav')
 	<div  class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li><a href="admin/post">发布</a></li>
-			<li><a href="admin/tag">标签</a></li>
-			<li><a href="admin/upload">更新</a></li>
+			<li><a href="home">首页</a></li>
+			<li><a href="admin/tag">文章 </a></li>
+			<li><a href="admin/upload">文件</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
@@ -22,7 +22,7 @@
 	@endsection
 	<!--content-->
 	@section('author-content')
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="panel panel-default">
@@ -31,7 +31,7 @@
 					</div>
 					<div class="panel-body">
 						@include('admin.partials.success')
-						<form class="form-horizontal" role="form" method="POST" action="admin/tag/update/{{ $id }}">
+						<form class="form-horizontal" role="form" method="POST" action="admin/tag/update/{{ $id }}" enctype="multipart/form-data">
 							{!! csrf_field() !!}
 							@include('admin.partials.errors')
 							<div class="form-group">

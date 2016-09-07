@@ -151,7 +151,7 @@ return [
         //Socialites
         Laravel\Socialite\SocialiteServiceProvider::class,
         //Pusher
-        Vinkla\Pusher\PusherServiceProvider::class,
+        'YuanChao\Editor\EndaEditorServiceProvider',
 
 
         /*
@@ -210,6 +210,8 @@ return [
         
         //Socialites
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
+        'EndaEditor' => 'YuanChao\Editor\Facade\EndaEditorFacade',
     ],
 
 ];

@@ -3,9 +3,9 @@
 	@section('author-nav')
 	<div  class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li><a href="admin/post">发布</a></li>
-			<li><a href="admin/tag">标签</a></li>
-			<li><a href="admin/upload">上传</a></li>
+			<li><a href="home">首页</a></li>
+			<li><a href="admin/tag">文章 </a></li>
+			<li><a href="admin/upload">文件</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
@@ -25,11 +25,11 @@
 		<div class="col-md-8 col-md-offset-2">
 			<div class="row page-title-row">
 				<div class="col-md-6 col-xs-6">
-					<h3>标签 <small>» 列表</small></h3>
+					<h3>文章 <small>» 列表</small></h3>
 				</div>
 				<div class="col-md-6 col-xs-6 text-right">
 					<a href="admin/tag/create" class="btn btn-success btn-md">
-						<i class="fa fa-plus-circle"></i> New Tag
+						<i class="fa fa-plus-circle"></i> New Msg
 					</a>
 				</div>
 			</div>
@@ -43,8 +43,10 @@
 								<th>标签名</th>
 								<th>标题</th>
 								<th class="hidden-sm">副标题</th>
-								<th class="hidden-md">标签介绍</th>
+								<th class="hidden-md">内容</th>
 								<th class="hidden-md">模板</th>
+								<th class="hidden-md">Pic</th>
+								<th class="hidden-md">created-time</th>
 								<th class="hidden-sm">Direction</th>
 								<th data-sortable="false">Actions</th>
 							</tr>
@@ -55,8 +57,24 @@
 								<td>{{ $tag->tag }}</td>
 								<td>{{ $tag->title }}</td>
 								<td class="hidden-sm">{{ $tag->subtitle }}</td>
-								<td class="hidden-md">{{ $tag->meta_description }}</td>
+								<td class="hidden-md">
+									@if($tag->content)
+									Yes
+									@else
+									Null
+									@endif
+								</td>
 								<td class="hidden-md">{{ $tag->layout }}</td>
+								<td class="hidden-md">
+									@if($tag->page_image)
+									Yes
+									@else
+									No
+									@endif
+								</td>
+								<td class="hidden-sm">
+									{{$tag->created_at}}
+								</td>
 								<td class="hidden-sm">
 									@if ($tag->reverse_direction)
 									Reverse
@@ -67,6 +85,9 @@
 								<td>
 									<a href="admin/tag/{{ $tag->id }}/edit" class="btn btn-xs btn-info">
 										<i class="fa fa-edit"></i> Edit
+									</a>
+									<a href="admin/tag/{{ $tag->id }}/delete" class="btn btn-xs btn-danger">
+										<i class="fa fa-times-circle"></i> Delete
 									</a>
 								</td>
 							</tr>

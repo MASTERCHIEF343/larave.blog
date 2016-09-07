@@ -1,0 +1,16 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+.main-header{
+	text-align: center;
+	color: white;
+	padding: 42px 0px;
+	padding-top: 62px;
+	padding-bottom: 52px;
+}
+.background{
+	background-color: #f4645f;
+	background-repeat: no-repeat;
+}
+/*# sourceMappingURL=all.css.map */

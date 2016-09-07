@@ -1,0 +1,14 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+.main-content{
+	width: 80%;
+	margin: 0 auto;
+}
+.main-content .left-content{
+	padding: 5 10px;
+}
+.main-content .right-content{
+	padding: 5 10px;
+}

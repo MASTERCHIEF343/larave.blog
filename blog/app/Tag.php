@@ -11,4 +11,6 @@ class Tag extends Model
     	*
    	*/
    	protected $table = 'tags';
+
+	
 }

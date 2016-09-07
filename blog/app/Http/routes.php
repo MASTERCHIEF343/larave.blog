@@ -27,12 +27,19 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
 
+	//home page
+	Route::get('home','HomePageController@index');
+	Route::get('msg','HomePageController@msg');
+	Route::get('wiki','HomePageController@wiki');
+	Route::get('poster','HomePageController@poster');
+
+
 	//get
 	//register and log in
 	Route::get('admin/register','Admin\RegisterController@register');
 	Route::get('admin/login','Admin\RegisterController@login');
 	//after register
-	Route::get('admin/user/{name}', 'Admin\RegisterController@user')->name('author');
+	Route::get('admin/ser/{name}', 'Admin\RegisterController@user')->name('author');
 	//logout
 	Route::get('admin/logout','Admin\RegisterController@logout');
 	//reset password
@@ -49,7 +56,8 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('admin/tag/create','Admin\TagController@create');
 	//edite tag
 	Route::get('admin/tag/{id}/edit' ,'Admin\TagController@edit');
-
+	//delete msg
+	Route::get('admin/tag/{id}/delete','Admin\TagController@delete');
 
 
 	//post
@@ -65,7 +73,8 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('admin/tag/update/{id}','Admin\TagController@update');
 	//delete tag
 	Route::post('admin/tag/delete/{id}','Admin\TagController@delete');
-
+	//create content
+	Route::post('admin/tag/update/{id}/createcontent','Admin\TagController@createcontent');
 
 	//filesystem
 	//upload file
@@ -81,6 +90,5 @@ Route::group(['middleware' => ['web']], function () {
 	//Socialites
 	Route::get('auth/github', 'SocialiteController@redirectToProvider');
 	Route::get('auth/github/callback', 'SocialiteController@handleProviderCallback');
-
 
 });
