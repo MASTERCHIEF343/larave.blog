@@ -15,10 +15,6 @@ use Crypt;
 
 class AdminController extends Controller
 {
-	//文章发布
-	public function post(){
-
-	} 
 	//标签
 	public function tag(Request $request){
 		$name = Crypt::decrypt($request->session()->get('name'));

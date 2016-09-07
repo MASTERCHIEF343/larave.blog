@@ -6,7 +6,7 @@ body{
 	background: #ebebeb;
 }
 .main-content{
-	width: 80%;
+	width: 90%;
 	margin: 0 auto;
 }
 .main-content .left-content{
@@ -26,7 +26,7 @@ body{
 }
 .link:hover{
 	text-decoration: none;
-	background: #505050;
+	background: #303030;
 	font-size: 14px;
 	color: rgba(255,255,255,1);
 }
@@ -56,7 +56,7 @@ article
 	text-decoration: none;
 }
 .post-pic{
-	width: 80%;
+	width: 90%;
 	margin: 30px auto;
 }
 .post-pic img{
@@ -64,12 +64,12 @@ article
 	height: 344px;
 }
 .post-descripition{
-	width: 80%;
+	width: 90%;
 	margin: 0px auto;
 	color: #808087;
 }
 .post-button{
-	width: 80%;
+	width: 90%;
 	margin: 30px auto;
 }
 /*
@@ -94,4 +94,18 @@ widget
 	position: absolute;
 	left: 0px;
 	bottom: -1px;
+}
+/*
+footer
+*/
+.post-footer{
+	width: 90%;
+	margin: 0px auto;
+	margin-top: 30px;
+	border-top: 1px solid #ebebeb;
+	padding: 21px 0;
+}
+.pull-left{
+	color: #959595;
+	line-height: 28px;
 }

@@ -66,6 +66,26 @@
 	<!--Content-->
 	@section('content')
 	@show
+	<!--Footer-->
+	<footer class="footer">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12">
+					<span>
+						Copyright &copy; 
+						1995 - 2016
+					</span>
+					|
+					<span>
+						Created by 
+						<a class="outlink" href="https://github.com/MASTERCHIEF343">
+							Master Chief
+						</a>
+					</span>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>

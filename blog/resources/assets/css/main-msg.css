@@ -1,0 +1,38 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	background: #ebebeb;
+}
+.main-msg{
+	width: 90%;
+	margin: 0 auto;
+}
+/*
+article
+*/
+.article{
+	padding: 35px;
+	background: #fff;
+	margin-bottom: 30px;
+}
+.post-header{
+	height: 71px;
+	text-align: center;
+}
+.post-meta{
+	color: #959595;
+}
+.author a{
+	text-decoration: none;
+	color: #f4645f;
+}
+.author a:hover{
+	text-decoration: none;
+}
+.msg-content{
+	width: 90%;
+	margin: 0px auto;
+	color: #808087;
+}

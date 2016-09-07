@@ -32,6 +32,8 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('msg','HomePageController@msg');
 	Route::get('wiki','HomePageController@wiki');
 	Route::get('poster','HomePageController@poster');
+	//show msg
+	Route::get('msg/{id}','HomePageController@showmsg');
 
 
 	//get
