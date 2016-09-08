@@ -9,7 +9,7 @@ use App\Http\Requests;
 use App\Tag;
 //mark down
 use EndaEditor;
-
+use DB;
 class HomePageController extends Controller
 {
 	//variable
@@ -21,20 +21,20 @@ class HomePageController extends Controller
 	];
 	//index page
 	public function index(){
-		$tag = New Tag;
-		$datas = [];
-		$contents = $tag::all()->groupby('id');
-		$contents = $contents->toArray();
-		foreach (array_keys($contents) as $id) {
-			$title = $tag::select('title')->where('id','=',$id)->first();
+		$tag =Tag::paginate(2);
+		$contents = $tag->toArray();
+		$contents = end($contents);
+		foreach ($contents as $ids) {
+			$id = $ids['id'];
+			$title = Tag::select('title')->where('id','=',$id)->first();
 			$title = implode('', json_decode($title,true));
-			$name = $tag::select('name')->where('id','=',$id)->first();
+			$name = Tag::select('name')->where('id','=',$id)->first();
 			$name = implode('', json_decode($name,true));
-			$page_image = $tag::select('page_image')->where('id','=',$id)->first();
+			$page_image = Tag::select('page_image')->where('id','=',$id)->first();
 			$page_image = implode('', json_decode($page_image,true));
-			$meta_description = $tag::select('meta_description')->where('id','=',$id)->first();
+			$meta_description = Tag::select('meta_description')->where('id','=',$id)->first();
 			$meta_description = implode('', json_decode($meta_description,true));
-			$created_at = $tag::select('created_at')->where('id','=',$id)->first();
+			$created_at = Tag::select('created_at')->where('id','=',$id)->first();
 			$created_at = implode('', json_decode($created_at,true));
 			$datas[$id]['id'] = $id;
 			$datas[$id]['title'] = $title;
@@ -43,11 +43,7 @@ class HomePageController extends Controller
 			$datas[$id]['meta_description'] = $meta_description;
 			$datas[$id]['created_at'] = $created_at;
 		};
-		return view('Home.index')->with('datas',$datas);
-	}
-	//msg page
-	public function msg(){
-
+		return view('Home.index',['datas'=>$datas,'tag'=>$tag]);
 	}
 	//wiki page
 	public function wiki(){

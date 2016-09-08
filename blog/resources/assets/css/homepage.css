@@ -74,3 +74,12 @@ Footer
 	text-decoration: none;
 	color: #f4645f;
 }
+/*
+PageIndex
+*/
+.PageIndex{
+	text-align: center;
+}
+.PageIndex a{
+	background: #f4645f;
+}

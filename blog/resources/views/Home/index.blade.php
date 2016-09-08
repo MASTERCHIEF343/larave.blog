@@ -46,4 +46,13 @@
 			</div>
 		</div>
 	</div>
+	<div class="container">
+		<div class="PageIndex">
+			<div class="row">
+				<div class="col-md-12">
+					{!! $tag->links() !!}
+				</div>
+			</div>
+		</div>
+	</div>
 	@endsection
