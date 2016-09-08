@@ -12,6 +12,9 @@ body{
 /*
 article
 */
+.msg-box{
+	min-height: 600px;
+}
 .article{
 	padding: 35px;
 	background: #fff;
@@ -32,7 +35,7 @@ article
 	text-decoration: none;
 }
 .msg-content{
-	width: 90%;
+	width: 70%;
 	margin: 0px auto;
 	color: #808087;
 }

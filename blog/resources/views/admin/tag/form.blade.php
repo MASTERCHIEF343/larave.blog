@@ -7,6 +7,14 @@
 	</div>
 </div>
 <div class="form-group">
+	<label for="name" class="col-md-4 control-label">
+		作者
+	</label>
+	<div class="col-md-7">
+		<input type="text" class="form-control" name="name" id="name" value="{{ $name }}">
+	</div>
+</div>
+<div class="form-group">
 	<label for="subtitle" class="col-md-4 control-label">
 		副标题
 	</label>
@@ -27,7 +35,7 @@
 		文章
 	</label>
 	<div class="col-md-7">
-		<textarea class="form-control" name="content" id="content" rows="6">{{$content}}</textarea>
+		<textarea class="form-control" name="content" id="content" rows="10">{{$content}}</textarea>
 	</div>
 </div>
 <div class="form-group">

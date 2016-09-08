@@ -23,6 +23,7 @@ class TagController extends Controller
 	protected $fields = [
 	        'tag' => '',
 	        'title' => '',
+	        'name' =>'',
 	        'subtitle' => '',
 	        'content' =>'',
 	        'page_image' => '',

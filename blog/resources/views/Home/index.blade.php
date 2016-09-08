@@ -14,7 +14,7 @@
 							<div class="post-header">
 								<h1>{{$data['title']}}</h1>
 								<div class="post-meta">
-									<span class="author">作者: <a href="poster">Masterchief </a></span> |
+									<span class="author">作者: <a href="poster">{{$data['name']}} </a></span> |
 									<time class="post-date">时间: {{$data['created_at']}}</time>
 								</div>
 							</div>

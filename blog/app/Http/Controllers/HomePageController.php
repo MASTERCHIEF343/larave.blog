@@ -28,6 +28,8 @@ class HomePageController extends Controller
 		foreach (array_keys($contents) as $id) {
 			$title = $tag::select('title')->where('id','=',$id)->first();
 			$title = implode('', json_decode($title,true));
+			$name = $tag::select('name')->where('id','=',$id)->first();
+			$name = implode('', json_decode($name,true));
 			$page_image = $tag::select('page_image')->where('id','=',$id)->first();
 			$page_image = implode('', json_decode($page_image,true));
 			$meta_description = $tag::select('meta_description')->where('id','=',$id)->first();
@@ -36,6 +38,7 @@ class HomePageController extends Controller
 			$created_at = implode('', json_decode($created_at,true));
 			$datas[$id]['id'] = $id;
 			$datas[$id]['title'] = $title;
+			$datas[$id]['name'] = $name;
 			$datas[$id]['page_image'] = $page_image;
 			$datas[$id]['meta_description'] = $meta_description;
 			$datas[$id]['created_at'] = $created_at;
@@ -52,7 +55,7 @@ class HomePageController extends Controller
 	}
 	//poster introduction
 	public function poster(){
-
+		return view('Home.poster');
 	}
 	//show msg
 	public function showmsg($id){
@@ -60,12 +63,15 @@ class HomePageController extends Controller
 		$datas = [];
 		$title = $tag::select('title')->where('id','=',$id)->first();
 		$title = implode('', json_decode($title,true));
+		$name = $tag::select('name')->where('id','=',$id)->first();
+		$name = implode('', json_decode($name,true));
 		$content = $tag::select('content')->where('id','=',$id)->first();
 		$content = EndaEditor::MarkDecode(implode('', json_decode($content,true)));
 		$created_at = $tag::select('created_at')->where('id','=',$id)->first();
 		$created_at = implode('', json_decode($created_at,true));
 		$datas[$id]['id'] = $id;
 		$datas[$id]['title'] = $title;
+		$datas[$id]['name'] = $name;
 		$datas[$id]['content'] = $content;
 		$datas[$id]['created_at'] = $created_at;
 		return view('Home.showmsg')->with('datas',$datas);
