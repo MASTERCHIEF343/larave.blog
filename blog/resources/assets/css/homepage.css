@@ -2,6 +2,9 @@
 	margin: 0px;
 	padding: 0px;
 }
+body{
+	background: #ebebeb;
+}
 .main-header{
 	text-align: center;
 	color: white;
@@ -82,4 +85,17 @@ PageIndex
 }
 .PageIndex a{
 	background: #f4645f;
+}
+/*
+arraow
+*/
+#arraow{
+	display: block;
+	width: 32px;
+	height: 32px;
+	position: fixed;
+	right: 50px;
+	bottom: 100px;
+	z-index: 999;
+	cursor: pointer;
 }

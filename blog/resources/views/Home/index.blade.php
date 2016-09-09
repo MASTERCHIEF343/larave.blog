@@ -18,9 +18,9 @@
 									<time class="post-date">时间: {{$data['created_at']}}</time>
 								</div>
 							</div>
-							<div class="post-pic">
-								<img src="uploads/Img/{{$data['page_image']}}">
-							</div>
+								<div class="post-pic">
+									<img src="uploads/Img/{{$data['page_image']}}">
+								</div>
 							<div class="post-descripition">
 								{{$data['meta_description']}}
 							</div>

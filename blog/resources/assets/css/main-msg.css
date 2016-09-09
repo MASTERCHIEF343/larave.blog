@@ -2,10 +2,8 @@
 	margin: 0px;
 	padding: 0px;
 }
-body{
-	background: #ebebeb;
-}
 .main-msg{
+	min-height: 600px;
 	width: 90%;
 	margin: 0 auto;
 }
