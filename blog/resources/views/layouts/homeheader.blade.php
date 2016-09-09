@@ -8,7 +8,7 @@
 	<meta name="theme" content="HomePage">
 	<title>Anonymous's Blog</title>
 	<!--网站图标-->
-	<link rel="shortcut icon" href="img/poster.jpg">
+	<link rel="shortcut icon" href="img/logo.png">
 	<!-- 新 Bootstrap 核心 CSS 文件 -->
 	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 	<!-- 可选的Bootstrap主题文件（一般不用引入） -->
@@ -48,12 +48,8 @@
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav menu ">
-					<li class="nav-current"><a href="home">首页</a></li>
-					<li><a class="link-color" href="msg">文章</a></li>
-					<li><a href="wiki">wiki</a></li>
-					<li><a href="poster">作者</a></li>
-				</ul>
+				@section('nav')
+				@show
 				<form class="navbar-form navbar-right " role="search">
 					<div class="form-group">
 						<input type="text" id="form-search" class=" form-control " placeholder="想要找些什么呢....">
@@ -72,7 +68,10 @@
 		<img class="arrow" alt="arrow" src="img/arrow.png" style="display:none;">
 	</a>
 	<!--Footer-->
-	
+	<footer class="footer">
+		<span>Copyright &copy;  1995-2016 </span> | 
+		<a href="poster" class="outlink">Masterchief</a>
+	</footer>
 </body>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>

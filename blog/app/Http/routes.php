@@ -34,6 +34,8 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('poster','HomePageController@poster');
 	//show msg
 	Route::get('msg/{id}','HomePageController@showmsg');
+	//show different tags
+	Route::get('tag/{tags}','HomePageController@showdiffertags');
 
 
 	//get

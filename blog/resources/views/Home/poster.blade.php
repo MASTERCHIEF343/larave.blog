@@ -3,6 +3,24 @@
 	@section('link')
 	<link rel="stylesheet" type="text/css" href="../resources/assets/css/poster.css">
 	@endsection
+	<!--Nav-->
+	@section('nav')
+	<ul class="nav navbar-nav menu ">
+		<li><a href="home">首页</a></li>
+		<li role="presentation" class="dropdown">
+			<a class="dropdown-toggle link-color" data-toggle="dropdown" href="msg">
+				分类 <span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu" role="menu">
+				 @foreach ($array as $arr)
+				 <li><a href="tag/{{$arr}}">{{$arr}}</a></li>
+				 @endforeach
+			</ul>
+		</li>
+		<li><a href="wiki">wiki</a></li>
+		<li class="nav-current"><a href="poster">作者</a></li>
+	</ul>
+	@endsection
 	<!--content-->
 	@section('content')
 		<div class="main-content">

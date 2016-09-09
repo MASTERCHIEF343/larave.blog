@@ -24,7 +24,7 @@ class TagCreateStore extends Request
     public function rules()
     {
         return [
-            'tag' => 'bail|required|unique:tags,tag',
+            'tag' => 'bail|required',
             'title' => 'bail|required',
             'subtitle' => 'bail|required',
             'layout' => 'bail|required',

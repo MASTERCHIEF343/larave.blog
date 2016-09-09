@@ -1,3 +1,4 @@
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
 <div class="form-group">
 	<label for="title" class="col-md-4 control-label">
 		标题

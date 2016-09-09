@@ -6,17 +6,8 @@
 	<!--Nav-->
 	@section('nav')
 	<ul class="nav navbar-nav menu ">
-		<li class="nav-current"><a href="home">首页</a></li>
-		<li role="presentation" class="dropdown">
-			<a class="dropdown-toggle link-color" data-toggle="dropdown" href="msg">
-				分类 <span class="caret"></span>
-			</a>
-			<ul class="dropdown-menu" role="menu">
-				@foreach ($array as $arr)
-				<li><a href="tag/{{$arr}}">{{$arr}}</a></li>
-				@endforeach
-			</ul>
-		</li>
+		<li><a href="home">首页</a></li>
+		<li class="nav-current"><a href="javascript:void();">{{$tags}}</a></li>
 		<li><a href="wiki">wiki</a></li>
 		<li><a href="poster">作者</a></li>
 	</ul>
@@ -55,12 +46,11 @@
 				</div>
 				<div class="col-md-4 right-content">
 					<div class="widget">
-						<h4 class="title"><img src="img/mineblog2.png" style="height:30px;"></h4>
+						<h4 class="title">分类</h4>
 						<div class="content">
-							<p>
-								<h4>Motto:  </h4>
-								Somewhere beyond right and wrong thereis a garden,I will meet you there.
-							</p>
+							@foreach ($array as $arr)
+							<li><a class="tag-link" href="tag/{{$arr}}">{{$arr}}</a></li>
+							@endforeach
 						</div>
 					</div>
 				</div>
