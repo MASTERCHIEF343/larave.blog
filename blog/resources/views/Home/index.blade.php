@@ -59,7 +59,7 @@
 						<div class="content">
 							<p>
 								<h4>Motto:  </h4>
-								Somewhere beyond right and wrong thereis a garden,I will meet you there.
+								<i>Somewhere beyond right and wrong thereis a garden,I will meet you there.</i>
 							</p>
 						</div>
 					</div>

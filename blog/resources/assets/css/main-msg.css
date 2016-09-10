@@ -2,16 +2,16 @@
 	margin: 0px;
 	padding: 0px;
 }
-.main-msg{
-	min-height: 600px;
-	width: 90%;
-	margin: 0 auto;
+li{
+	list-style-type: none;
 }
 /*
 article
 */
 .msg-box{
-	min-height: 600px;
+	padding: 50px;
+	padding-top: 10px;
+	min-height: 400px;
 }
 .article{
 	padding: 35px;
@@ -36,4 +36,41 @@ article
 	width: 70%;
 	margin: 0px auto;
 	color: #808087;
+}
+/*
+Discuss
+*/
+#comment-place{
+	width: 70%;
+	padding-top: 40px;
+	margin: 0px auto;
+	color: #808087;
+}
+.comment-place {
+	width: 70%;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+.comments{
+	border-top: 1px solid #dedede;
+	width: 90%
+	margin: 0 auto;
+	height: 100px;
+	padding-top: 17px;
+	padding-left: 10px;
+}
+.comments-img{
+	float:left;
+}
+.comments-box{
+	float:left;width:90%;
+}
+.comments-name{
+	display: block;margin-left:20px;
+}
+.comments-content{
+	margin-left:20px;
+}
+.comments-time{
+	margin-left:70%;
 }

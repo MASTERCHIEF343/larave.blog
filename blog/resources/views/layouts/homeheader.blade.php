@@ -6,6 +6,7 @@
 	<meta name="author" content="masterchief">
 	<meta name="description" content="personal blog">
 	<meta name="theme" content="HomePage">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>Anonymous's Blog</title>
 	<!--网站图标-->
 	<link rel="shortcut icon" href="img/logo.png">

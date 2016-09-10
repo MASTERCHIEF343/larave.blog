@@ -36,6 +36,8 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('msg/{id}','HomePageController@showmsg');
 	//show different tags
 	Route::get('tag/{tags}','HomePageController@showdiffertags');
+	//get comments
+	Route::get('comment/upload/{id}','CommentController@showcomment');
 
 
 	//get
@@ -79,6 +81,8 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('admin/tag/delete/{id}','Admin\TagController@delete');
 	//create content
 	Route::post('admin/tag/update/{id}/createcontent','Admin\TagController@createcontent');
+	//store comment
+	Route::post('comment/upload/{id}','CommentController@storecomment');
 
 	//filesystem
 	//upload file

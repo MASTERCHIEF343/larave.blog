@@ -10,6 +10,8 @@ use App\Tag;
 //mark down
 use EndaEditor;
 use DB;
+//model visitor
+use App\Visitor;
 class HomePageController extends Controller
 {
 	//variable
@@ -64,6 +66,7 @@ class HomePageController extends Controller
 	//show msg
 	public function showmsg($id){
 		$tag = New Tag;
+		$msgindex = $id;
 		$datas = [];
 		$title = $tag::select('title')->where('id','=',$id)->first();
 		$title = implode('', json_decode($title,true));
@@ -78,7 +81,7 @@ class HomePageController extends Controller
 		$datas[$id]['name'] = $name;
 		$datas[$id]['content'] = $content;
 		$datas[$id]['created_at'] = $created_at;
-		return view('Home.showmsg')->with('datas',$datas);
+		return view('Home.showmsg',['datas'=>$datas,'msgindex'=>$msgindex]);
 	}
 	//show different tags
 	public function showdiffertags($tags){
