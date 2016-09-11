@@ -37,10 +37,8 @@
 											<h3 class="panel-title">评论</h3>
 										</div>
 										<div class="panel-body">
-											<div>
-												<ul id="box">
-												</ul>
-											</div>
+											@foreach ()
+											@endforeach
 										</div>
 										<div class="panel-footer">
 											<form id="form">
@@ -79,61 +77,26 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-			//show comment
-			$(document).ready(function(){
-				var comments = $.get("comment/upload/{{$msgindex}}",function(data){
-					var ul = document.getElementById('box');
-					for (var i = 0; i < data.length; i++) {
-						var comments = document.createElement('div');
-						comments.className = 'comments';
-						var commentsimg = document.createElement('img');
-						commentsimg.src = 'img/user.png';
-						commentsimg.className = 'comments-img';
-						comments.appendChild(commentsimg);
-						//coments-box
-						var commentsbox = document.createElement('div');
-						commentsbox.className = 'comments-box';
-						//name
-						var commentsname = document.createElement('span');
-						commentsname.className = 'comments-name';
-						commentsname.innerHTML = data[i]['nickname'];
-						commentsbox.appendChild(commentsname);
-						//content
-						var commentscontent = document.createElement('p');
-						commentscontent.className = 'comments-content';
-						commentscontent.innerHTML = data[i]['comment'];
-						commentsbox.appendChild(commentscontent);
-						//time
-						var commentstime = document.createElement('time');
-						commentstime.className = 'comments-time';
-						commentstime.innerHTML = data[i]['created_at'];
-						commentsbox.appendChild(commentstime);
-						//added
-						comments.appendChild(commentsbox);
-						ul.appendChild(comments);
-					}
-				});
-				//post comment
-				$('#submit').click(function(){
-					var formParam = $("#form").serialize();
-					var datas = $.ajax({
-						url: "comment/upload/{{$msgindex}}",
-						type: 'post',
-						data: formParam,
-						headers: {
-						       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-						},
-						success: function(data){
-							$('#myModal').modal(true);
-							$('#btn').click(function(){
-								location.reload();
-							});
-						},
-						error : function() {  
-						// view("异常！");  
-							console.log("异常！");
-						}  
-					});
+			//post comment
+			$('#submit').click(function(){
+				var formParam = $("#form").serialize();
+				var datas = $.ajax({
+					url: "comment/upload/{{$msgindex}}",
+					type: 'post',
+					data: formParam,
+					headers: {
+					       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					},
+					success: function(data){
+						$('#myModal').modal(true);
+						$('#btn').click(function(){
+							location.reload();
+						});
+					},
+					error : function() {  
+					// view("异常！");  
+						console.log("异常！");
+					}  
 				});
 			});
 		</script>

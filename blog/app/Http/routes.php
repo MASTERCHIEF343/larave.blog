@@ -45,7 +45,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('admin/register','Admin\RegisterController@register');
 	Route::get('admin/login','Admin\RegisterController@login');
 	//after register
-	Route::get('admin/ser/{name}', 'Admin\RegisterController@user')->name('author');
+	Route::get('admin/user/{name}', 'Admin\RegisterController@user')->name('author');
 	//logout
 	Route::get('admin/logout','Admin\RegisterController@logout');
 	//reset password

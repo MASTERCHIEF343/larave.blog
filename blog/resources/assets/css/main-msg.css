@@ -51,26 +51,3 @@ Discuss
 	margin: 0 auto;
 	padding-top: 30px;
 }
-.comments{
-	border-top: 1px solid #dedede;
-	width: 90%
-	margin: 0 auto;
-	height: 100px;
-	padding-top: 17px;
-	padding-left: 10px;
-}
-.comments-img{
-	float:left;
-}
-.comments-box{
-	float:left;width:90%;
-}
-.comments-name{
-	display: block;margin-left:20px;
-}
-.comments-content{
-	margin-left:20px;
-}
-.comments-time{
-	margin-left:70%;
-}

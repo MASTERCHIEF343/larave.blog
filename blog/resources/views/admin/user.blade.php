@@ -4,7 +4,7 @@
 	<div  class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
 			<li><a href="home">首页</a></li>
-			<li><a href="admin/tag">标签</a></li>
+			<li><a href="admin/tag">文章 </a></li>
 			<li><a href="admin/upload">更新</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
