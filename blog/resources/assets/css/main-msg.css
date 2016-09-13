@@ -1,6 +1,7 @@
 *{
 	margin: 0px;
 	padding: 0px;
+	word-wrap: break-word;
 }
 li{
 	list-style-type: none;
@@ -38,6 +39,13 @@ article
 	color: #808087;
 }
 /*
+Form
+*/
+.panel-footer #form{
+	width: 75%;
+	margin: 0 auto;
+}
+/*
 Discuss
 */
 #comment-place{
@@ -50,4 +58,66 @@ Discuss
 	width: 70%;
 	margin: 0 auto;
 	padding-top: 30px;
+}
+.comments{
+	position: relative;
+	width: 90%;
+	left: 10px;
+	border-top: 2px solid #bce8f1;
+	margin: 0px auto;
+	padding-top: 10px;
+	max-height: 450px;
+	clear: both;
+}
+.headpic{
+	margin-top: 13px;
+	width: 40px;
+	height: 40px;
+	float: left;
+}	
+.nickname{
+	float: left;
+	padding-left: 10px;
+	min-height: 100px;
+	width: 90%;
+}
+.nickname div{
+
+}
+.nickname h4{
+	color: #f4645f;
+}
+.createdtime{
+	display: block;
+	left: 10px;
+	font-size: 7px;
+}
+.comm{
+	padding-top: 3px;
+	width: 100%;
+	color: #333;
+	font-size: 14px;
+	font-weight: 400;
+	clear: both;
+}
+.add-reply{
+	display: block;
+	float: right;
+	cursor: pointer;
+	text-decoration: none;
+}
+.add-reply:hover{
+	text-decoration: none;
+}
+.add-com{
+	display: block;
+	width: 20px;
+	height: 20px;
+	float: right;
+}
+.nickname #childform{
+	display: none;
+	margin-top: 10px;
+	clear: both;	
+	padding-bottom: 10px;
 }

@@ -26,8 +26,8 @@ class CommentController extends Controller
 	}
 	//show comment
 	public function showcomment($id){
-		$visitor = New Visitor;
-		$comments = $visitor::where('msg_id','=',$id)->get();
-		return response()->json($comments);
+		$model = 'visitors';
+		$cms = getcomments($model);
+		return response()->json($cms);
 	}
 }

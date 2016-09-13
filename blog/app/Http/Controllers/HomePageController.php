@@ -81,9 +81,7 @@ class HomePageController extends Controller
 		$datas[$id]['name'] = $name;
 		$datas[$id]['content'] = $content;
 		$datas[$id]['created_at'] = $created_at;
-		$model = 'visitors';
-		$cms = getcomments($model);
-		return view('Home.showmsg',['datas'=>$datas,'msgindex'=>$msgindex,'cms'=>$cms]);
+		return view('Home.showmsg',['datas'=>$datas,'msgindex'=>$msgindex]);
 	}
 	//show different tags
 	public function showdiffertags($tags){

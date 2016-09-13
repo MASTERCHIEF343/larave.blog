@@ -36,37 +36,27 @@
 										<div class="panel-heading">
 											<h3 class="panel-title">评论</h3>
 										</div>
-										<div class="panel-body">
-											@foreach ()
-											@endforeach
+										<div class="panel-body"  id="cms">
+											
 										</div>
 										<div class="panel-footer">
-											<form id="form">
-												{!! csrf_field() !!}
-												<div class="form-group">
-													<input type="text" name="nickname" id="nickname">
-													<label for="nickname" >
-														昵称
-													</label>
-												</div>
-												<div class="form-group">
-													<input type="email" name="email" id="email">
-													<label for="email" >
-														邮件地址 (选填)
-													</label>
-												</div>
-												<div class="form-group">
-													<input type="text" name="personalweb" id="personalweb">
-													<label for="personalweb" >
-														个人主页 (选填)
-													</label>
-												</div>
-												<div class="form-group">
-													<textarea name="comment" rows="8" style="width:500px;resize:none;" ></textarea>
-												</div>
-												<!-- Indicates a successful or positive action -->
-												<button type="button" id="submit" class="btn btn-success">发表评论</button>
-											</form>
+											<div class="form-box">
+												<form id="form" enctype="multipart/form-data">
+													{!! csrf_field() !!}
+													<input type="text" name="parent_id" id="parent_id" value="" hidden="hidden">
+													<div class="form-group">
+														<input type="text" name="nickname" id="nickname">
+														<label for="nickname" >
+															昵称
+														</label>
+													</div>
+													<div class="form-group">
+														<textarea name="comment" id="commenttextarea" rows="8" style="width:80%;resize:none;" ></textarea>
+													</div>
+													<!-- Indicates a successful or positive action -->
+													<button type="button" id="submit" class="btn btn-success submit">发表评论</button>
+												</form>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -77,9 +67,20 @@
 			</div>
 		</div>
 		<script type="text/javascript">
+			//show comment
+			$(document).ready(function(){
+				$.get("comment/upload/{{$msgindex}}",function(data){
+					var len = data.length;
+					for (var i = 0; i < len; i++) {
+						tree = commentstree(data[i]);
+						var Cms = document.getElementById('cms');
+						Cms.appendChild(tree);
+					};
+				});
+			});
 			//post comment
 			$('#submit').click(function(){
-				var formParam = $("#form").serialize();
+				var formParam = $('#form').serialize();
 				var datas = $.ajax({
 					url: "comment/upload/{{$msgindex}}",
 					type: 'post',
@@ -99,9 +100,94 @@
 					}  
 				});
 			});
+			//post comment
+			$('.panel-body').delegate("button","click",function(){
+				formid = "#" + this.parentNode.id;
+				var formParam = $(formid).serialize();
+				console.log(formParam)
+				var datas = $.ajax({
+					url: "comment/upload/{{$msgindex}}",
+					type: 'post',
+					data: formParam,
+					headers: {
+					       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					},
+					success: function(data){
+						$('#myModal').modal(true);
+						$('#btn').click(function(){
+							location.reload();
+						});
+					},
+					error : function() {  
+					// view("异常！");  
+						console.log("异常！");
+					}  
+				});
+			});
+			//comments tree
+			function commentstree(el){
+				//container
+				var comments = document.createElement('div');
+				comments.className = 'comments';
+				//pic
+				var headpic = document.createElement('img');
+				headpic.className = 'headpic';
+				headpic.src = 'img/user01.png';
+				//nicknamebox
+				var nicknamebox = document.createElement('div');
+				nicknamebox.className = 'nickname';
+				//comment box
+				var commentbox = document.createElement('div');
+				//nickname
+				var nickname = document.createElement('h4');
+				nickname.innerHTML = el['nickname'];
+				commentbox.appendChild(nickname);
+				//created time
+				var time = document.createElement('i');
+				time.className = 'createdtime';
+				time.innerHTML = el['created_at'];
+				commentbox.appendChild(time);
+				//comments
+				var com = document.createElement('div');
+				com.className = 'comm';
+				com.innerHTML = el['comment'];
+				commentbox.appendChild(com);
+				//add comment
+				var addcom = document.createElement('img');
+				var reply = document.createElement('a');
+				addcom.className = 'add-com';
+				addcom.src = 'img/com.png';
+				reply.innerText = '回复';
+				reply.className = 'add-reply';
+				reply.setAttribute('data-target','#myModal');
+				commentbox.appendChild(reply);
+				commentbox.appendChild(addcom);
+				nicknamebox.appendChild(commentbox);
+				//form
+				var form = document.querySelector('.form-box').cloneNode(true);
+				var parent_id = el['id'];
+				form.children['0'].id = el['id'];
+				form.children['0'].style.display = 'none';
+				form.children['0'].children['1'] = parent_id;
+				form.children['0'].children['1'].value = parent_id;
+				nicknamebox.appendChild(form);
+				//append
+				comments.appendChild(headpic);
+				comments.appendChild(nicknamebox);
+				//child
+				var child = [];
+				if(el['children'].length != 0){
+					for(var i = 0;i < el['children'].length;i ++){
+						childcms = commentstree(el['children'][i]);
+						comments.appendChild(childcms);
+					}
+				}else{
+					return comments;	
+				}
+				return comments;	
+			}
 		</script>
 	@endsection
-
 <div class="modal fade" id="myModal">
 	<div class="modal-dialog">
 		<div class="modal-content">
