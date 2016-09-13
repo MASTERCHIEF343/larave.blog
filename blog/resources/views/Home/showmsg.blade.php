@@ -124,6 +124,16 @@
 					}  
 				});
 			});
+			//reply display
+			$('.panel-body').delegate("a","click",function(){
+				formid = this.parentNode.children['3'].name;
+				var form = document.getElementById(formid);
+				if(form.style.display == 'block'){
+					form.style.display = 'none';
+				}else{
+					form.style.display = 'block';
+				}
+			});
 			//comments tree
 			function commentstree(el){
 				//container
@@ -152,14 +162,14 @@
 				com.className = 'comm';
 				com.innerHTML = el['comment'];
 				commentbox.appendChild(com);
-				//add comment
+				//add reply
 				var addcom = document.createElement('img');
 				var reply = document.createElement('a');
 				addcom.className = 'add-com';
 				addcom.src = 'img/com.png';
 				reply.innerText = '回复';
 				reply.className = 'add-reply';
-				reply.setAttribute('data-target','#myModal');
+				reply.name = el['id'];
 				commentbox.appendChild(reply);
 				commentbox.appendChild(addcom);
 				nicknamebox.appendChild(commentbox);
