@@ -27,7 +27,7 @@ class CommentController extends Controller
 	//show comment
 	public function showcomment($id){
 		$model = 'visitors';
-		$cms = getcomments($model);
+		$cms = getcomments($model,$id);
 		return response()->json($cms);
 	}
 }

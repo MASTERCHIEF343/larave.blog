@@ -57,6 +57,9 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('admin/tag','Admin\AdminController@tag');
 	//admin-upload
 	Route::get('admin/upload','Admin\UploadController@upload');
+	//admin-comment
+	Route::get('admin/comment','Admin\ShowCommentController@comment');
+	Route::get('admin/comment/{id}/delete','Admin\ShowCommentController@delete');
 
 	//create new tag
 	Route::get('admin/tag/create','Admin\TagController@create');

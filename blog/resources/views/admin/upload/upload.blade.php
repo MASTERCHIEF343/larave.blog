@@ -6,6 +6,7 @@
 			<li><a href="home">首页</a></li>
 			<li><a href="admin/tag">文章 </a></li>
 			<li><a href="admin/upload">文件</a></li>
+			<li><a href="admin/comment">评论</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">

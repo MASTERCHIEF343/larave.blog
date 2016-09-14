@@ -1,7 +1,7 @@
 <?php
 //get comments
-function getcomments($model,$parent_id = 0,&$result = array()){
-	$comments = DB::table($model)->where('parent_id', '=', $parent_id)->get();
+function getcomments($model,$msg_id = 0,$parent_id = 0,&$result = array()){
+	$comments = DB::table($model)->where('msg_id','=',$msg_id)->where('parent_id', '=', $parent_id)->get();
 	$model = $model;
 	if(empty($comments)){
 		return array();

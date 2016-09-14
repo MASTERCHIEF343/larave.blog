@@ -51,6 +51,18 @@
 														</label>
 													</div>
 													<div class="form-group">
+														<input type="email" name="email" id="email">
+														<label for="email" >
+															邮箱(选填)
+														</label>
+													</div>
+													<div class="form-group">
+														<input type="text" name="personalweb" id="personalweb">
+														<label for="personalweb" >
+															个人主页(选填)
+														</label>
+													</div>
+													<div class="form-group">
 														<textarea name="comment" id="commenttextarea" rows="8" style="width:80%;resize:none;" ></textarea>
 													</div>
 													<!-- Indicates a successful or positive action -->
@@ -79,32 +91,19 @@
 				});
 			});
 			//post comment
-			$('#submit').click(function(){
-				var formParam = $('#form').serialize();
-				var datas = $.ajax({
-					url: "comment/upload/{{$msgindex}}",
-					type: 'post',
-					data: formParam,
-					headers: {
-					       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-					},
-					success: function(data){
-						$('#myModal').modal(true);
-						$('#btn').click(function(){
-							location.reload();
-						});
-					},
-					error : function() {  
-					// view("异常！");  
-						console.log("异常！");
-					}  
-				});
-			});
-			//post comment
-			$('.panel-body').delegate("button","click",function(){
+			$('.panel').delegate("button","click",function(){
+				var nickname = this.parentNode.children['2'].children['0'].value;
+				var comment = this.parentNode.children['5'].children['0'].value;
+				if(nickname == ''){
+					alert('昵称不能为空!');
+					return false;
+				}
+				if(comment == ''){
+					alert('评论不能为空!');
+					return false;
+				}
 				formid = "#" + this.parentNode.id;
 				var formParam = $(formid).serialize();
-				console.log(formParam)
 				var datas = $.ajax({
 					url: "comment/upload/{{$msgindex}}",
 					type: 'post',
@@ -142,7 +141,7 @@
 				//pic
 				var headpic = document.createElement('img');
 				headpic.className = 'headpic';
-				headpic.src = 'img/user01.png';
+				headpic.src = 'img/user02.png';
 				//nicknamebox
 				var nicknamebox = document.createElement('div');
 				nicknamebox.className = 'nickname';

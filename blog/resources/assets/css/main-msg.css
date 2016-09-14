@@ -121,3 +121,9 @@ Discuss
 	clear: both;	
 	padding-bottom: 10px;
 }
+.nickname div:first-child{
+	margin-bottom: 30px;
+}
+.nickname div h4{
+	font-weight: 700;
+}
