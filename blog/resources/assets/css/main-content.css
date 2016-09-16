@@ -69,6 +69,19 @@ article
 	margin: 30px auto;
 }
 /*
+*search-results
+*/
+.search-results{
+	height: 400px;
+	padding: 35px;
+	background: #fff;
+	margin-bottom: 30px;
+	font-size: 24px;
+	text-align: center;
+	line-height: 200px;
+	vertical-align: middle;
+}
+/*
 widget
 */
 .widget{

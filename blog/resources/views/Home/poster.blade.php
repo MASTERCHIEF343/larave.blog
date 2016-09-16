@@ -17,7 +17,6 @@
 				 @endforeach
 			</ul>
 		</li>
-		<li><a href="wiki">wiki</a></li>
 		<li class="nav-current"><a href="poster">作者</a></li>
 	</ul>
 	@endsection

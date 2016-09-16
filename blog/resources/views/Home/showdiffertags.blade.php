@@ -8,7 +8,6 @@
 	<ul class="nav navbar-nav menu ">
 		<li><a href="home">首页</a></li>
 		<li class="nav-current"><a href="javascript:void();">{{$tags}}</a></li>
-		<li><a href="wiki">wiki</a></li>
 		<li><a href="poster">作者</a></li>
 	</ul>
 	@endsection

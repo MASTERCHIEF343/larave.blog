@@ -17,7 +17,6 @@
 				@endforeach
 			</ul>
 		</li>
-		<li><a href="wiki">wiki</a></li>
 		<li><a href="poster">作者</a></li>
 	</ul>
 	@endsection
@@ -25,8 +24,8 @@
 	@section('content')
 	<div class="main-content">
 		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-8 left-content" >
+			<div class="row" style="min-height:600px;">
+				<div class="col-md-8 left-content" id="left-content">
 					@foreach ($datas as $data)
 						<article class="article">
 							<div class="post-header">
@@ -36,9 +35,9 @@
 									<time class="post-date">时间: {{$data['created_at']}}</time>
 								</div>
 							</div>
-								<div class="post-pic">
-									<img src="uploads/Img/{{$data['page_image']}}">
-								</div>
+							<div class="post-pic">
+								<img src="uploads/Img/{{$data['page_image']}}">
+							</div>
 							<div class="post-descripition">
 								{{$data['meta_description']}}
 							</div>
@@ -55,7 +54,11 @@
 				</div>
 				<div class="col-md-4 right-content">
 					<div class="widget">
-						<h4 class="title"><img src="img/mineblog2.png" style="height:30px;"></h4>
+						<h4 class="title">
+							<a href="lastest/rss" style="cursor:pointer;">
+								<img src="img/mineblog2.png" style="height:30px;">
+							</a>
+						</h4>
 						<div class="content">
 							<p>
 								<h4>Motto:  </h4>

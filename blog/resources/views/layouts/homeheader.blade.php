@@ -51,13 +51,13 @@
 			<div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
 				@section('nav')
 				@show
-				<form class="navbar-form navbar-right " role="search">
+				<form id="search" class="navbar-form navbar-right " role="search">
 					<div class="form-group">
-						<input type="text" id="form-search" class=" form-control " placeholder="想要找些什么呢....">
+						<input id="search-object" name="search-object" type="text" id="form-search" class=" form-control " placeholder="想要找些什么呢....">
 					</div>
-					<a href="javascript:void();">
+					<button id="search-from" type="button" style="border:0px;background:#fff;">
 						<img class="nav-img" src="img/search.png">
-					</a>
+					</button>
 				</form>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
@@ -77,6 +77,7 @@
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+	//滚会顶部
 	$(function () {
 		showScroll();
 		function showScroll() {
@@ -89,5 +90,84 @@
 			});
 		}
 	});
+	//搜索
+	$('#search-object').focus(function(){
+		$(this).val("");
+	})
+	$('#search-from').click(function(){
+		formsubmit();	
+	});
+	$('#search-object').keypress(function(event){
+		if(event.keyCode == 13){
+			formsubmit();
+			return false;
+		}
+	})
+	function formsubmit(){
+		var searchObject = $("input[name='search-object']").val();
+		if(searchObject == ''){
+			$("input[name='search-object']").css("color","red").val("搜索内容为空");
+			$('#search-object').focus(function(){
+				$(this).val("").css("color","black");
+			})
+			return false;
+		}
+		var formParam = $('form').serialize();
+		$.ajax({
+			type: 'POST',
+			url: 'search',
+			data: formParam,
+			dataType: 'json',
+			headers: {
+			       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			},
+			success: function(data){
+				if(data == ''){
+					$("article").hide();
+					$('.PageIndex').hide();
+					var result = document.createElement('article');
+					result.className = 'search-results';
+					result.innerHTML = 'Oops! 未找到相关内容...';
+					document.getElementById('left-content').appendChild(result);
+
+				}else{
+					$("article").hide();
+					$('.PageIndex').hide();
+					for(var i = 0;i < data.length;i ++){
+						var result = document.createElement('article');
+						result.className = 'article';
+						//header
+						var header = document.createElement('div');
+						header.className = 'post-header';
+						var h1 = document.createElement('h1');
+						h1.innerHTML = data[i]['title'];
+						header.appendChild(h1);
+						//meta description
+						var meta = document.createElement('div');
+						meta.className = 'post-descripition';
+						meta.style.textAlign = 'center';
+						meta.innerHTML = data[i]['meta_description'];
+						//link
+						var msg = document.createElement('div');
+						msg.className = 'post-button';
+						var link = document.createElement('a');
+						link.href = 'msg/'+data[i]['id'];
+						link.innerHTML = '阅读全文';
+						link.className = 'link';
+						msg.style.textAlign = 'center';
+						msg.appendChild(link);
+						result.appendChild(header);
+						result.appendChild(meta);	
+						result.appendChild(msg);
+						document.getElementById('left-content').appendChild(result);
+					}
+					return false;
+				}
+			},
+			error:function(){
+				alert('wrong');
+			}
+		});
+	}
 </script>
 </html>

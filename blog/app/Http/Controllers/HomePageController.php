@@ -12,6 +12,10 @@ use EndaEditor;
 use DB;
 //model visitor
 use App\Visitor;
+//rss
+use Suin\RSSWriter\Channel;
+use Suin\RSSWriter\Feed;
+use Suin\RSSWriter\Item;
 class HomePageController extends Controller
 {
 	//variable
@@ -112,5 +116,37 @@ class HomePageController extends Controller
 			$array[] =  $value['tag'];
 		}
 		return view('Home.showdiffertags',['datas'=>$datas,'tags'=>$tags,'tag'=>$tag,'array'=>$array]);
+	}
+	//rss
+	public function rss(){
+		$num = DB::table('tags')->orderBy('created_at', 'desc')->count();
+		$len = $num;
+		$msgs = DB::table('tags')->orderBy('created_at', 'desc')->get();
+		$lastest = $msgs[$len-1];
+
+		$feed = new Feed();
+		$channel = new Channel();
+		$channel
+		    ->title('MasterChief\'s Blog')
+		    ->description('With great power comes great responsibility.')
+		    ->url('http://MasterChief\'s Blog.com')
+		    ->language('zn-CH')
+		    ->copyright('Copyright 2012, Foo Bar')
+		    ->pubDate(strtotime('Tue, 21 Sep 2016 19:50:37 +0900'))
+		    ->appendTo($feed);
+
+		// Blog item
+		$item = new Item();
+		$item
+		    ->title($lastest->title)
+		    ->description('<div>'.$lastest->subtitle.'</div>')
+		    ->contentEncoded('<div>'.$lastest->content.'</div>')
+		    ->url('http://blog.example.com/2012/08/21/blog-entry/')
+		    ->author('MasterChief')
+		    ->pubDate(strtotime($lastest->created_at))
+		    ->preferCdata(true) // By this, title and description become CDATA wrapped HTML.
+		    ->appendTo($channel);
+
+		return response($feed)->header('Content-type', 'text/xml');;
 	}
 }

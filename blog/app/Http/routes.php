@@ -38,6 +38,8 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('tag/{tags}','HomePageController@showdiffertags');
 	//get comments
 	Route::get('comment/upload/{id}','CommentController@showcomment');
+	//lastest rss
+	Route::get('lastest/rss','HomePageController@rss');
 
 
 	//get
@@ -96,6 +98,9 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('admin/upload/createfolder','Admin\UploadController@createfolder');
 	//delete folder
 	Route::delete('admin/upload/deletefolder','Admin\UploadController@deletefolder');
+
+	//search
+	Route::post('search','SearchController@index');
 
 
 	//Socialites
