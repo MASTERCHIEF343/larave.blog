@@ -1,7 +1,10 @@
 #laravel Blog
 </br>
+#[演示地址](http://139.199.109.117/blog/public/home)
+</br>
+***
 第一次尝试使用了laravel，总体的感觉这是一个很庞大的框架，相比较thinkphp或是ci，laravel的冗余程度可以达到最大，
-但这并不掩盖它的有点
+但这并不掩盖它的有
 ***
 ##Ioc
 </br>
