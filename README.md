@@ -9,7 +9,7 @@
 相比工厂模式中可以快速大量的生产出实物，Ioc则是打破了工厂模式类型固定的特点，任意的添加原理和方法，
 这也就是thinkphp5.0开始向laravel转变原因吧。
 当然啦，laravel本身一提供了许多的方法，但是究其根本，都是Ioc容器衍生出来的～
-添加一个关于容器的链接吧：[ https://laravel-china.org/topics/78]( )
+添加一个关于容器的链接吧：[神奇的Ioc容器]( https://laravel-china.org/topics/789)
 ***
 ##博客配置：
 </br>
@@ -23,7 +23,7 @@
 ####(3)文章的生成（按照标签分类）
 ####(4)文章的分页（模板）
 ####(5)文件管理系统（laravel自带的实在是功能比较小，我参照laravel学院自己搭建了一个）
-学院地址：[http://laravelacademy.org/post/2333.html]()
+[学院地址](http://laravelacademy.org/post/2333.html)
 ####(5)游客评论的管理功能（删除、邮箱）
 ###前端功能：
 ####(1)文章的浏览
@@ -31,7 +31,7 @@
 ####(3)简单的站内搜索（只是对于文章的标题）
 ####(4)ajax刷新（评论）
 ####(5)bootstrap搭建（cdn）
-样式仿照地址：[http://www.golaravel.com/]()
+[仿照样式地址](http://www.golaravel.com/)
 ***
 ##前后端数据交互问题
 </br>
@@ -157,18 +157,18 @@ function commentstree(el){
 				}
 			});
 ```
-####至此，无限级的评论回复功能基本上就实现了(下次再加上表情)
+####至此，无限级的评论回复功能基本上就实现了
 ***
 ##社会化登录
 </br>
 ###这个其实挺简单的，通过OAuth就能调用接口，在通过回调函数获取用户的邮箱，id，nickname等
-地址：[https://oauth.net/2/]()
+[地址](https://oauth.net/2/)
 ***
 ##Markdown 语法
 </br>
 ###感谢开源：
-地址：[https://github.com/yccphp/laravel-5-markdown-editor]()
-就是时间比较老了，有段时间没有维护了
+[laravel-php-markdown](https://github.com/yccphp/laravel-5-markdown-editor)
+</br>就是时间比较老了，有段时间没有维护了
 
 
 
